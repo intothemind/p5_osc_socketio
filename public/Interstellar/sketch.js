@@ -238,7 +238,7 @@ function startCalibrate(){
   console.log('startCalibrate');
    //make button invisible
   firstButton.hide();
-  secondButton.show();
+ // secondButton.show();
   
 
   //set the state to STATE_REALTIME
