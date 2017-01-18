@@ -6,12 +6,14 @@ function drawMission1() {
 
   //get the current value for alpha_relative
   var alpha_relative = muse.get('/muse/elements/alpha_relative');
- // console.log(alpha_relative.leftEar);
+  // console.log(alpha_relative.leftEar);
 
   //get the current value for beta_relative
   var beta_relative = muse.get('/muse/elements/beta_relative');
-  
-    var theta_relative = muse.get('/muse/elements/theta_relative');
+
+  var theta_relative = muse.get('/muse/elements/theta_relative');
+
+  var horse = muse.get('/muse/elements/horseshoe');
 
 
   //draw circle corresponding to the alpha value (mean of all electrodes)
@@ -22,22 +24,17 @@ function drawMission1() {
 
   //var score = 0.8*alpha_relative.mean + 0.2*theta_relative.mean;
   //var score = 0.8*alpha_relative.mean + 0.2*theta_relative.mean - beta_relative.mean;
-  var score = alphaTheta(alpha_relative.mean,theta_relative.mean);
-  
+  var score = alphaTheta(alpha_relative.mean, theta_relative.mean);
+
   var threshold = dt.threshold(score);
 
-  
-// console.log('alphaR ' , alphaR);
+
+  // console.log('alphaR ' , alphaR);
 
 
 
-
-
-
-
-
-//  console.log('score' + score);
-//  console.log('threshold' + threshold); 
+  //  console.log('score' + score);
+  //  console.log('threshold' + threshold); 
 
   noFill();
   stroke(227, 227, 227, 40);
@@ -88,30 +85,30 @@ function drawMission1() {
   } */
   noFill();
   color('white');
-  for (i=0; i<starPositions.length;i++){
+  for (i = 0; i < starPositions.length; i++) {
     var ra = starPositions[i].r;
 
     var angle = radians(starPositions[i].a);
     var v = createVector(ra, 0);
     v.rotate(angle);
 
-   
+
     ellipse(v.x, v.y, 10, 10);
   }
-  
+
   fill('white');
-  
+
   var ellapsed = millis() - startTime;
-  if (ellapsed>2500){
-   // console.log('jetzt messen');
-    if(score>threshold){
+  if (ellapsed > 2500) {
+    // console.log('jetzt messen');
+    if (score > threshold) {
       starCounter = starCounter + 1;
     }
     startTime = millis();
-  
+
   }
-  
-  starCounter = constrain(starCounter,0,starPositions.length);
+
+  starCounter = constrain(starCounter, 0, starPositions.length);
   for (i = 0; i < starCounter; i++) {
     var ra = starPositions[i].r;
 
@@ -119,11 +116,11 @@ function drawMission1() {
     var v = createVector(ra, 0);
     v.rotate(angle);
 
-   
+
     ellipse(v.x, v.y, 10, 10);
-    
+
   }
-pop();
+  pop();
 
 
   /*  var r = circleRadius[0];
@@ -139,7 +136,6 @@ pop();
 
 
 
-
   push();
   translate(5, 950);
   textSize(20);
@@ -152,34 +148,34 @@ pop();
 
   var w = 20;
   var gap = 10;
-  var x =0;
-  var y =0;
+  var x = 0;
+  var y = 0;
   // Horseshoe anzeige Kontakt!! 
-   translate(10,40);
-   col = ('green');
-   //draw left ear
-  // var col = getColor(horse.leftEar);
-   //console.log('col',col);
-   fill(col);
-   ellipse(x,y,w,w);
-   
-   //draw left front
-   //var col = getColor(horse.leftFront);
-   fill(col);
-   x = w+gap;
-   ellipse(x,y,w,w);
-   
-     //draw right front
-   //var col = getColor(horse.rightFront);
-   fill(col);
-   x = 2*(w+gap)
-   ellipse(x,y,w,w);
-   
-     //draw right ear
-  // var col = getColor(horse.rightEar);
-   fill(col);
-   x = 3*(w+gap);
-   ellipse(x,y,w,w);
+  translate(10, 40);
+ // col = ('green');
+  //draw left ear
+  var col = getColor(horse.leftEar);
+  //console.log('col',col);
+  fill(col);
+  ellipse(x, y, w, w);
+
+  //draw left front
+  var col = getColor(horse.leftFront);
+  fill(col);
+  x = w + gap;
+  ellipse(x, y, w, w);
+
+  //draw right front
+  var col = getColor(horse.rightFront);
+  fill(col);
+  x = 2 * (w + gap)
+  ellipse(x, y, w, w);
+
+  //draw right ear
+  var col = getColor(horse.rightEar);
+  fill(col);
+  x = 3 * (w + gap);
+  ellipse(x, y, w, w);
 
 
   pop();
@@ -192,13 +188,13 @@ pop();
   //text() braucht noch zwei argumente für die position (x,y), darum hats nicht geklappt
   textAlign(RIGHT, TOP);
   fill('white');
- text('STARS: ' + starCounter * 5, 0, 0);
- 
+  text('STARS: ' + starCounter * 5, 0, 0);
+
   pop();
 
 }
 
 
-function alphaTheta(a,t){
-  return 0.5*a + 0.5*t;
+function alphaTheta(a, t) {
+  return 0.5 * a + 0.5 * t;
 }

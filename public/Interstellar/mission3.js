@@ -25,60 +25,52 @@ function drawMission3() {
   background(bgImg);
   //get the current value for alpha_relative
   var alpha_relative = muse.get('/muse/elements/alpha_relative');
- // console.log(alpha_relative.leftEar);
+  // console.log(alpha_relative.leftEar);
 
   //get the current value for beta_relative
   var beta_relative = muse.get('/muse/elements/beta_relative');
-  
+
   var theta_relative = muse.get('/muse/elements/theta_relative');
-  
-  
+
+  var horse = muse.get('/muse/elements/horseshoe');
+
+
   //Threshold
-  var score = thetaBeta(theta_relative.mean,beta_relative.mean);
-  
+  var score = thetaBeta(theta_relative.mean, beta_relative.mean);
+
   var threshold = dt.threshold(score);
-  
+
   var feedback = score - threshold;
-  
-  if(feedback<0){
+
+  if (feedback < 0) {
     feedback = 0;
   }
-  
-
-  
 
 
 
-
-
-
-
-
- // console.log('feedback ' + feedback);
+  // console.log('feedback ' + feedback);
   //console.log('score ' + score);
-//  console.log('threshold ' + threshold);
-//  console.log('earth ',  earth);
-//  console.log('rocket', rocket);
-  
-  
-  var positionErde = createVector(earth.x,earth.y);
-  var positionRocket = createVector(rocket.x,rocket.y);
+  //  console.log('threshold ' + threshold);
+  //  console.log('earth ',  earth);
+  //  console.log('rocket', rocket);
+
+
+  var positionErde = createVector(earth.x, earth.y);
+  var positionRocket = createVector(rocket.x, rocket.y);
   var distanceV = p5.Vector.sub(positionErde, positionRocket);
   var distance = distanceV.mag();
-    finaleDistanz = distance;
- 
-  
-  
-  
- // console.log('distance ', distance);
-  
-  
-  
+  finaleDistanz = distance;
+
+
+
+  // console.log('distance ', distance);
+
+
 
   //calculate a reasonable speed based on alpha value
- // var speed = map(alpha_relative.mean, 0, 1, 0, -1);
+  // var speed = map(alpha_relative.mean, 0, 1, 0, -1);
   var speed = map(feedback, 0, 0.1, 0, -0.1);
- // console.log('speed', speed);
+  // console.log('speed', speed);
 
   //check if speed is a valid number (if no value was measured from muse, e.g. when muse is not on the head, then speed will be NaN)
   if (isNaN(speed)) {
@@ -114,9 +106,8 @@ function drawMission3() {
 
   //draw rocket with help of the viewport
   drawRocket(rocket, viewport);
-  
-  
- 
+
+
 
   /*
     fill('#FFDF4E');
@@ -164,40 +155,40 @@ function drawMission3() {
   //text() braucht noch zwei argumente für die position (x,y), darum hats nicht geklappt
   textAlign(LEFT, TOP);
   text('BRAININTERFACE', 0, 0);
-  
-  
+
+
   var w = 20;
   var gap = 10;
-  var x =0;
-  var y =0;
+  var x = 0;
+  var y = 0;
   // Horseshoe anzeige Kontakt!! 
-   translate(10,40);
-   col = ('green');
-   //draw left ear
-  // var col = getColor(horse.leftEar);
-   //console.log('col',col);
-   fill(col);
-   ellipse(x,y,w,w);
-   
-   //draw left front
-   //var col = getColor(horse.leftFront);
-   fill(col);
-   x = w+gap;
-   ellipse(x,y,w,w);
-   
-     //draw right front
-   //var col = getColor(horse.rightFront);
-   fill(col);
-   x = 2*(w+gap)
-   ellipse(x,y,w,w);
-   
-     //draw right ear
-  // var col = getColor(horse.rightEar);
-   fill(col);
-   x = 3*(w+gap);
-   ellipse(x,y,w,w);
-  
-  
+  translate(10, 40);
+  //col = ('green');
+  //draw left ear
+  var col = getColor(horse.leftEar);
+  //console.log('col',col);
+  fill(col);
+  ellipse(x, y, w, w);
+
+  //draw left front
+  var col = getColor(horse.leftFront);
+  fill(col);
+  x = w + gap;
+  ellipse(x, y, w, w);
+
+  //draw right front
+  var col = getColor(horse.rightFront);
+  fill(col);
+  x = 2 * (w + gap)
+  ellipse(x, y, w, w);
+
+  //draw right ear
+  var col = getColor(horse.rightEar);
+  fill(col);
+  x = 3 * (w + gap);
+  ellipse(x, y, w, w);
+
+
   pop();
 
   push();
@@ -207,11 +198,11 @@ function drawMission3() {
   //text() braucht noch zwei argumente für die position (x,y), darum hats nicht geklappt
   textAlign(RIGHT, TOP);
   fill('white');
-  text('DISTANCE TO EARTH: ' + floor(distance),0,0);
-  translate(0,0);
+  text('DISTANCE TO EARTH: ' + floor(distance), 0, 0);
+  translate(0, 0);
   //text('PUNKTE: ' + floor(map(distance,300,0,0,375)),0,0);
   pop();
-  
+
   push();
   translate(width - 10, 40);
   textSize(20);
@@ -219,17 +210,17 @@ function drawMission3() {
   //text() braucht noch zwei argumente für die position (x,y), darum hats nicht geklappt
   textAlign(RIGHT, TOP);
   fill('white');
-    translate(0,0);
-  text('PUNKTE: ' + floor(map(distance,300,0,0,375)),0,0);
-  
-  pop();
-  
+  translate(0, 0);
+  text('PUNKTE: ' + floor(map(distance, 300, 0, 0, 375)), 0, 0);
 
-  
-  if(distance < 10){
+  pop();
+
+
+
+  if (distance < 10) {
     startDashboard();
   }
-  
+
 
 }
 
@@ -333,7 +324,6 @@ function updateViewportBounds(vp) {
   vp.bottom = vp.y + 0.5 * vp.h;
 }
 
-function thetaBeta(t,b){
-  return 0.8*t + 0.2*b;
+function thetaBeta(t, b) {
+  return 0.8 * t + 0.2 * b;
 }
-
