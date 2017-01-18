@@ -5,7 +5,7 @@ var dummy = false;
 
 var done = false;
 
-var host = '10.0.1.6';
+var host = '127.0.0.1';
 var port = 3000;
 
 //states
