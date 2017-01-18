@@ -4,7 +4,7 @@ function drawCalibrate() {
   
   
   var horse = muse.get('/muse/elements/horseshoe');
-  console.log('hores',horse);
+  //console.log('hores',horse);
   
   var w = 20;
   var gap = 10;

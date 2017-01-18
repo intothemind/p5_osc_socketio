@@ -8,7 +8,7 @@ function dtmean(arr) {
 	});
 
 	return sum / arr.length;
-
+ //testcomment
 }
 
 

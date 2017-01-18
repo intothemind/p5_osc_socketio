@@ -43,7 +43,7 @@ function drawRealtimeVis() {
   */
   
   smrValues.push(smr);
-  console.log('smr:',smr);
+ // console.log('smr:',smr);
   
   if (feedback < 0){
     feedback = 0;
@@ -104,7 +104,7 @@ function drawRealtimeVis() {
   }*/
   
   //ellipse(width/2, height/2, r, r);
-  console.log('feedback:' + feedback);
+ // console.log('feedback:' + feedback);
 }
 
 function heart(perc, isBeating) {
@@ -120,8 +120,8 @@ function heart(perc, isBeating) {
 
   //Füllhöhe von Prozent in Pixel mappen.
   var fillHeight = map(perc, 0, 1, 0, pg.height);
-  console.log('pg.height:'+ pg.height);
-  console.log('fillHeight:' + fillHeight);
+ // console.log('pg.height:'+ pg.height);
+ // console.log('fillHeight:' + fillHeight);
   //var fillHeight_2 = map(perc, 0, 1, 50, pg.height);
   //Füllmenge in offline canvas zeichnen.
   pg.clear();

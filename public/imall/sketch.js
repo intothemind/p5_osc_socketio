@@ -148,7 +148,7 @@ function setup() {
   //muse = museData().dummyData();
 
   //use this line to make a real connection to muse
-  muse = museData().connection('http://127.0.0.1:8081');
+  muse = museData().connection(getHost());
 
   
   //muse = museData().connection('http://127.0.0.1:1373');

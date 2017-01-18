@@ -4,10 +4,12 @@
 // Using express: http://expressjs.com/
 var express = require('express');
 var osc = require('node-osc');
+var directory = require('serve-index');
 
 
 // Create the app
 var app = express();
+
 
 // Set up the server
 // process.env.PORT is related to deploying on heroku
@@ -20,6 +22,7 @@ function listen() {
   console.log('Example app listening at http://' + host + ':' + port);
 }
 
+app.use(directory('public'));
 app.use(express.static('public'));
 
 

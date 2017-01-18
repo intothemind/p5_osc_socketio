@@ -14,7 +14,7 @@ function drawDashboardVis() {
   //var yMin = min(smrValues);
   
   heart(fillPercentage, isBeating);
-  console.log('smrMean:'+ smrMean);
+ // console.log('smrMean:'+ smrMean);
   var chartWidth = 667;
   var chartHeight = 100;
   
