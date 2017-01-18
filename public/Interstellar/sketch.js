@@ -174,30 +174,39 @@ function setup() {
 function draw() {
 
   if(state == STATE_CALIBRATE){
+    console.log('state == STATE_CALIBRATE');
     drawCalibrate();
   }
   else if(state == STATE_MISSION1){
+      console.log('state == STATE_MISSION1');
      drawMission1();
   }  
   else if(state == STATE_MISSION3 ){
+      console.log('state == STATE_MISSION3');
     drawMission3();
   }
   else if(state == STATE_DASHBOARD){
+      console.log('state == STATE_DASHBOARD');
     drawDashboard();
   }
   else if(state == STATE_WELCOME){
+      console.log('state == STATE_WELCOME');
     drawWelcome();
   }
   else if(state == STATE_DESC1){
+      console.log('state == STATE_DESC1');
     drawDesc1();
   }
   else if(state == STATE_DESC3){
+      console.log('state == STATE_DESC3');
     drawDesc3();
   }
   else if(state == STATE_MISSION3END){
+      console.log('state == STATE_MISSION3END');
     drawDescEnd();
   }
   else {
+      
     console.log('error');
     background('red');
   }
