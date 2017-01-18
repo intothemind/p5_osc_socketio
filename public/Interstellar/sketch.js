@@ -145,17 +145,17 @@ function setup() {
   fourthButton.size(100, 30);
   fourthButton.mousePressed(startMission3); */
   
-  thirdButton = createButton('Start');
+  thirdButton = createButton('Start startRealtime');
   thirdButton.position(width / 2 - 180, height / 2 + 240);
   thirdButton.size(350, 50);
   thirdButton.mousePressed(startRealtime); 
   
-  secondButton = createButton('Weiter');
+  secondButton = createButton('Weiter startDesc1');
   secondButton.position(width / 2 - 180, height / 2 + 240);
   secondButton.size(350, 50);
   secondButton.mousePressed(startDesc1);
   
-  firstButton = createButton('Weiter');
+  firstButton = createButton('Weiter startCalibrate');
   firstButton.position(width / 2 - 180, height / 2 + 240);
   firstButton.size(350, 50);
   firstButton.mousePressed(startCalibrate);
@@ -206,7 +206,7 @@ function draw() {
     drawDescEnd();
   }
   else {
-      
+
     console.log('error');
     background('red');
   }
@@ -235,6 +235,7 @@ function drawDescEnd(){
 }
 
 function startCalibrate(){
+  console.log('startCalibrate');
    //make button invisible
   firstButton.hide();
   secondButton.show();
@@ -247,6 +248,8 @@ function startCalibrate(){
   //setTimeout(startMission3,10000);
 }
 function startDesc1(){
+
+  console.log('startDesc1');
    //make button invisible
   secondButton.hide();
   thirdButton.show();
@@ -259,7 +262,7 @@ function startDesc1(){
 }
 
 function startRealtime(){
- 
+ console.log('startRealtime');
   //make button invisible
   thirdButton.hide();
  // fourthButton.hide();
