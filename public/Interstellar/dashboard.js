@@ -6,26 +6,26 @@ function drawDashboard() {
 
   imageMode(CORNER);
   background(bgImg);
-  
+
   //Funktionen der Missionen 
-  
-     //Mission 3
+
+  //Mission 3
   push();
   translate(0, 60);
   scale(0.93);
   dashboardMission3();
   pop();
-  
-  
+
+
   //Mission 1
   push();
-  translate(width/2,height/2+100);
+  translate(width / 2, height / 2 + 100);
   scale(0.45);
   dashboardMission1();
   pop();
 
-  
-  
+
+
   //Alle Beschriftungen des Dashboards
   //Braininterface
   push();
@@ -34,7 +34,7 @@ function drawDashboard() {
   textSize(16);
   noStroke();
   textAlign(LEFT, TOP);
-    textFont(myFontBold);
+  textFont(myFontBold);
   text('BRAININTERFACE', 0, 0);
   pop();
 
@@ -58,7 +58,7 @@ function drawDashboard() {
   noStroke();
   textAlign(RIGHT, TOP);
   textFont(myFontBold);
-  text(starCounter * 5 + floor(map(finaleDistanz,300,0,0,375)) + '/750', 0, 0);
+  text(starCounter * 5 + floor(map(finaleDistanz, 300, 0, 0, 375)) + '/750', 0, 0);
   pop();
 
   //Mission 1
@@ -68,7 +68,7 @@ function drawDashboard() {
   textSize(16);
   noStroke();
   textAlign(LEFT, TOP);
-    textFont(myFontBold);
+  textFont(myFontBold);
   text('MISSION 1 ', 0, 0);
   textSize(32);
   text('ENTSPANNUNG ', 0, 20);
@@ -76,12 +76,12 @@ function drawDashboard() {
 
   //Mission 1 Punkte
   push();
-  
+
   translate(width - 10, 870);
   textSize(16);
   fill(204, 255, 204);
   textAlign(RIGHT, TOP);
-    textFont(myFont);
+  textFont(myFont);
   text(starCounter + ' von 75 Sternen', 0, 0);
   textFont(myFontBold);
   textSize(40);
@@ -91,21 +91,21 @@ function drawDashboard() {
   //Mission 3
   push();
   fill(204, 255, 204);
-  translate(10, height/2 - 60);
+  translate(10, height / 2 - 60);
   textSize(16);
   noStroke();
   textAlign(LEFT, TOP);
-    textFont(myFontBold);
+  textFont(myFontBold);
   text('MISSION 3 ', 0, 0);
   textSize(32);
-  text('Fokus ',0,20);
+  text('Fokus ', 0, 20);
   pop();
 
 
   //Mission 3 Punkte
   push();
-  
-  translate(width - 10, height/2-60);
+
+  translate(width - 10, height / 2 - 60);
   textSize(16);
   fill(204, 255, 204);
   textAlign(RIGHT, TOP);
@@ -114,56 +114,52 @@ function drawDashboard() {
   text('noch ' + floor(finaleDistanz) + ' bis zum Ziel', 0, 0);
   textFont(myFontBold);
   textSize(32);
-  text('+ ' + floor(map(finaleDistanz,300,0,0,375)), 0, 20);
+  text('+ ' + floor(map(finaleDistanz, 300, 0, 0, 375)), 0, 20);
   pop();
-  
-  
+
+
   //Linien um die Missionen
   //Mission 1
   push();
   stroke(204, 255, 204);
   noFill();
-  translate(5,height/2);
-  rect(0, 0, width-10, height/2 - 90);
+  translate(5, height / 2);
+  rect(0, 0, width - 10, height / 2 - 90);
   pop();
-  
+
   //Mission 3
-   push();
+  push();
   stroke(204, 255, 204);
   noFill();
-  translate(5,5);
-  rect(0, 20, width-10, height/2 - 20);
+  translate(5, 5);
+  rect(0, 20, width - 10, height / 2 - 20);
   pop();
-  
+
   //TITEL DES DASHBOARDS
-   push();
-  
-  translate(width/2, 30);
+  push();
+
+  translate(width / 2, 30);
   textSize(32);
   fill(204, 255, 204);
   textAlign(CENTER, TOP);
   textFont(myFontBold);
-  
+
   text('MISSIONSREPORT', 0, 0);
- 
+
   pop();
-  
-  
+
+
   //PUNKTE OBEN RECHTS
   push();
   fill(204, 255, 204);
-  translate(width-10, 40);
+  translate(width - 10, 40);
   textSize(16);
   noStroke();
   textAlign(RIGHT, TOP);
-    textFont(myFontBold);
+  textFont(myFontBold);
   text('PUNKTE ', 0, 0);
 
   pop();
-  
-  
-
-
 
 
 
@@ -174,18 +170,15 @@ function drawDashboard() {
   textSize(16);
   noStroke();
   textAlign(LEFT, TOP);
-    textFont(myFontBold);
+  textFont(myFontBold);
   text('RANKING', 0, 0);
   textSize(16);
-    textFont(myFont);
+  textFont(myFont);
   text('JOSEF  300', 0, 30);
   text('BJÖRN  140', 0, 50);
   text('JAMES  110', 0, 70);
 
   pop();
-
-
-
 
 
 
@@ -215,7 +208,7 @@ function drawDashboard() {
     //Rocket Display
     imageMode(CENTER);
     image(rocketImg, 200, 250, 536 / 8, 574 / 8);*/
-noLoop();
+  noLoop();
 }
 
 function dashboardMission1() {
@@ -229,13 +222,12 @@ function dashboardMission1() {
 
 
 
-
   fill('#E3E3E3');
 
   noFill();
   stroke('white');
 
- // console.log('starPositions: ' + starPositions.length);
+  // console.log('starPositions: ' + starPositions.length);
   for (i = 0; i < starPositions.length; i++) {
     var ra = starPositions[i].r;
 
@@ -250,7 +242,7 @@ function dashboardMission1() {
   fill('white');
 
 
-  
+
   for (i = 0; i < starCounter; i++) {
     var ra = starPositions[i].r;
 
@@ -264,7 +256,6 @@ function dashboardMission1() {
   }
 
 
-  
 
 }
 
@@ -286,9 +277,8 @@ function dashboardMission3() {
 
 
 
-
-//  console.log('earth ', earth);
-//  console.log('rocket', rocket);
+  //  console.log('earth ', earth);
+  //  console.log('rocket', rocket);
 
 
   var positionErde = createVector(earth.x, earth.y);
@@ -298,8 +288,7 @@ function dashboardMission3() {
 
 
 
-//  console.log('distance ', distance);
-
+  //  console.log('distance ', distance);
 
 
 

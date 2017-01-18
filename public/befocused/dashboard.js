@@ -12,15 +12,15 @@ function drawDashboardVis() {
   var isBeating = false;
   //var yMax = max(smrValues); 
   //var yMin = min(smrValues);
-  
+
   heart(fillPercentage, isBeating);
- // console.log('smrMean:'+ smrMean);
+  // console.log('smrMean:'+ smrMean);
   var chartWidth = 667;
   var chartHeight = 100;
-  
+
   push(); //neues Koordinatensystem
-  translate(width/2, height/2 + 350); //positionierung des Koordinatensystems
-  translate(- chartWidth/2, 0);
+  translate(width / 2, height / 2 + 350); //positionierung des Koordinatensystems
+  translate(-chartWidth / 2, 0);
   fill(68, 67, 67);
   //textAlign(LEFT);
   textSize(16);
@@ -30,23 +30,23 @@ function drawDashboardVis() {
   noStroke();
   var balkenHeight = map(schwelle, 0, 1, chartHeight, 0);
   rectMode(CENTER);
-  rect(chartWidth/2 + 10, balkenHeight, chartWidth-20, 20); //  chartHeight/2 - 20
+  rect(chartWidth / 2 + 10, balkenHeight, chartWidth - 20, 20); //  chartHeight/2 - 20
   noFill();
-  
+
   lineChart2(smrValues, 0, 0.15, chartWidth, chartHeight, [], []);
   //lineChart(smrValues, chartWidth, chartHeight);
   pop();
-  
+
   var feedbackMsg;
   var feedbackColor;
-  if(fillPercentage > schwelle){
+  if (fillPercentage > schwelle) {
     feedbackMsg = decisionPositiv;
     feedbackColor = 'green';
-  }else{
+  } else {
     feedbackMsg = decisionNegativ;
     feedbackColor = 'red';
   }
-  
+
   //Be Focused
   push();
   translate(50, 100);
@@ -62,10 +62,10 @@ function drawDashboardVis() {
   rectMode(CENTER);
   rect(150, 27, 290, 30); //status
   pop();
-  
+
   //Fokus
   push();
-  translate(55, window.innerHeight/2 -250);
+  translate(55, window.innerHeight / 2 - 250);
   fill(68, 67, 67);
   textFont(myFont);
   textSize(20);
@@ -74,20 +74,22 @@ function drawDashboardVis() {
   //text('yMin:' + yMin, 0, 150);
   //text('yMax:' + yMax, 0, 200);
   pop();
-  
+
   //Text Prozent
   push();
-  translate(width/2, height/2);
-  translate(0, -Herz.height/2);
+  translate(width / 2, height / 2);
+  translate(0, -Herz.height / 2);
   var fillHeight = map(fillPercentage, 0, 1, 0, Herz.height);
   textSize(30);
   textFont(myFont);
   fill(234, 34, 7);
   //var textPercent = map(fillPercentage, 0, Herz.height, 0, 100);
-  text(nfc(fillPercentage * 100, 1, 1) + '%', width/2 - 150, fillHeight-30); 
+  text(nfc(fillPercentage * 100, 1, 1) + '%', width / 2 - 150, fillHeight - 30);
   pop();
- }
- 
+
+  noLoop();
+}
+
 
 function lineChart2(values, yMin, yMax, w, h, xTickValues, yTickValues) {
 
@@ -109,7 +111,7 @@ function lineChart2(values, yMin, yMax, w, h, xTickValues, yTickValues) {
   }
   endShape();
   pop();
-  
+
   //draw the xAxis
   push();
   translate(border, innerHeight);
@@ -159,5 +161,3 @@ function lineChart2(values, yMin, yMax, w, h, xTickValues, yTickValues) {
   pop();
 
 }
-
-

@@ -132,6 +132,8 @@ function drawDashboardVis() {
   text('nicht \nausreichendes \nErgebnis', 885, 440);
   text('Phasenwechsel', 885, 520);
   text('Minuten', 885, 540);
+
+  noLoop();
 }
 
 

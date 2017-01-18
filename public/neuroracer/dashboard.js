@@ -107,6 +107,6 @@ function drawDashboardVis() {
 	textSize(30);
 	text('1:40', 0, 625);
 
-
+	noLoop();
 
 }

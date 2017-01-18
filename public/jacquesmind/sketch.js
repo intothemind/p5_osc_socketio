@@ -87,7 +87,7 @@ var strokeW;
 
 function setup() {
   
-  frameRate(30); 
+ // frameRate(30); 
   // createCanvas(1024,768);
   createCanvas(window.innerWidth,window.innerHeight);
 
@@ -129,6 +129,8 @@ function setup() {
   
   // Erstellen eines Baum-Strings
   createTree();
+
+  frameRate(30);
 }
 
 function draw() {

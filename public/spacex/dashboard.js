@@ -53,6 +53,8 @@ function drawDashboard(){
 	lineChart('Theta',thetaRollingAvg,400,40);
 	pop();
 	pop();
+
+	noLoop();
 }
 
 function cleanupDashboard(){

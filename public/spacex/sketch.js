@@ -100,6 +100,8 @@ function setup() {
 	ellipseMode(CENTER);
 
 	//setState(STATE_DASHBOARD);
+
+	frameRate(30);
 }
 
 

@@ -160,6 +160,7 @@ function drawDashboard() {
     }
   }
   pop();
+
 }
 
 function curveChart(arr, w, h, mapValue){
