@@ -95,9 +95,9 @@ function drawRealtimeVis() {
   pop();
 
   push();
-  //translate(-300, 280);
+  translate(-300, 280);
   translate(0,0);
-  image(schubkarre_echtzeit, 0, 0, 1024, 768);
-  //image(schubkarre_echtzeit, 0, 0, 1900, 700);
+  //image(schubkarre_echtzeit, 0, 0, 1024, 768);
+  image(schubkarre_echtzeit, 0, 0, 1900, 700);
   pop();
 }
