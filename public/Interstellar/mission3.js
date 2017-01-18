@@ -325,5 +325,6 @@ function updateViewportBounds(vp) {
 }
 
 function thetaBeta(t, b) {
-  return 0.8 * t + 0.2 * b;
+  //return 0.8 * t + 0.2 * b;
+  return -t + b;
 }
