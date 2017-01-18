@@ -145,17 +145,17 @@ function setup() {
   fourthButton.size(100, 30);
   fourthButton.mousePressed(startMission3); */
   
-  thirdButton = createButton('Start startRealtime');
+  thirdButton = createButton('Start');
   thirdButton.position(width / 2 - 180, height / 2 + 240);
   thirdButton.size(350, 50);
   thirdButton.mousePressed(startRealtime); 
   
-  secondButton = createButton('Weiter startDesc1');
+  secondButton = createButton('Weiter');
   secondButton.position(width / 2 - 180, height / 2 + 240);
   secondButton.size(350, 50);
   secondButton.mousePressed(startDesc1);
   
-  firstButton = createButton('Weiter startCalibrate');
+  firstButton = createButton('Weiter');
   firstButton.position(width / 2 - 180, height / 2 + 240);
   firstButton.size(350, 50);
   firstButton.mousePressed(startCalibrate);
@@ -174,35 +174,35 @@ function setup() {
 function draw() {
 
   if(state == STATE_CALIBRATE){
-    console.log('state == STATE_CALIBRATE');
+   // console.log('state == STATE_CALIBRATE');
     drawCalibrate();
   }
   else if(state == STATE_MISSION1){
-      console.log('state == STATE_MISSION1');
+    //  console.log('state == STATE_MISSION1');
      drawMission1();
   }  
   else if(state == STATE_MISSION3 ){
-      console.log('state == STATE_MISSION3');
+      //console.log('state == STATE_MISSION3');
     drawMission3();
   }
   else if(state == STATE_DASHBOARD){
-      console.log('state == STATE_DASHBOARD');
+    //  console.log('state == STATE_DASHBOARD');
     drawDashboard();
   }
   else if(state == STATE_WELCOME){
-      console.log('state == STATE_WELCOME');
+    //  console.log('state == STATE_WELCOME');
     drawWelcome();
   }
   else if(state == STATE_DESC1){
-      console.log('state == STATE_DESC1');
+    //  console.log('state == STATE_DESC1');
     drawDesc1();
   }
   else if(state == STATE_DESC3){
-      console.log('state == STATE_DESC3');
+     // console.log('state == STATE_DESC3');
     drawDesc3();
   }
   else if(state == STATE_MISSION3END){
-      console.log('state == STATE_MISSION3END');
+  //    console.log('state == STATE_MISSION3END');
     drawDescEnd();
   }
   else {
