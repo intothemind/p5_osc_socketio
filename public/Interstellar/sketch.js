@@ -253,12 +253,19 @@ function showSecondButton(){
   secondButton.show();
 }
 
+function showThirdButton(){
+  console.log('showThirdButton');
+  thirdButton.show();
+}
+
 function startDesc1(){
 
   console.log('startDesc1');
    //make button invisible
   secondButton.hide();
-  thirdButton.show();
+  setTimeout(showThirdButton,1000);
+
+  //thirdButton.show();
 
   //set the state to STATE_REALTIME
   state = STATE_DESC1;
