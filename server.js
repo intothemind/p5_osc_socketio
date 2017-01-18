@@ -49,6 +49,8 @@ io.sockets.on('connection',
 
 var oscServer, oscClient;
 
+console.log(Date.now());
+
 var oscip = '127.0.0.1';
 var listeningPort = 3333;
 
@@ -56,11 +58,18 @@ var listeningPort = 3333;
 console.log('listening to OSC messages on ' + oscip + ':'+ listeningPort);
 oscServer = new osc.Server(listeningPort, oscip);
 
+var msgCounter = 0;
 oscServer.on('message', function(msg, rinfo) {
   //  console.log(msg, rinfo);
-    console.log(msg[0]);
+    msgCounter++;
+    if(msgCounter % 1000 == 0){
+      //console.log(msg[0]);
+      console.log('received osc messages from ' + oscip + ':'+ listeningPort +': ' +  msgCounter);
+    }
     io.sockets.emit("muse", msg);
 });
+
+console.log(Date.now());
 
 
 
