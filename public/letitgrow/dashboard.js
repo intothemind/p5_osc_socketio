@@ -89,7 +89,8 @@ function drawDashboardVis() {
 
 function karottendiagramm(alpha_values, _w, _h) {
   for (var i = 0; i < alpha_values.length; i++) {
-    var index = floor(map(alpha_values[i], 0, 0.5, 0, karottenarr.length));
+    var index = floor(map(alpha_values[i], 0, 0.5, 0, karottenarr.length-1));
+    index = constrain(index,0,karottenarr.length-1);
     var ratio = karottenarr[index].width / karottenarr[index].height;
     //var w = _w/alpha_values.length;
     var x = map(i, 0, alpha_values.length - 1, 0, _w);
