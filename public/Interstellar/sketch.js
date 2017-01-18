@@ -243,7 +243,7 @@ function startCalibrate(){
 
   //set the state to STATE_REALTIME
   state = STATE_CALIBRATE;
-
+secondButton.show();
   //call a function after x millisecods in order to change state from realtime to dashboard
   //setTimeout(startMission3,10000);
 }
