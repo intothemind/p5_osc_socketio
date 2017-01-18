@@ -92,8 +92,8 @@ function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
 
   // Anbindung an Muse
-  muse = museData().dummyData();
-  // muse = museData().connection('http://127.0.0.1:8081');
+ // muse = museData().dummyData();
+   muse = museData().connection(getHost());
   
   muse.listenTo('/muse/elements/alpha_relative');
   muse.listenTo('/muse/elements/theta_relative');
