@@ -239,14 +239,20 @@ function startCalibrate(){
    //make button invisible
   firstButton.hide();
  // secondButton.show();
-  
+  setTimeout(showSecondButton,1000);
 
   //set the state to STATE_REALTIME
   state = STATE_CALIBRATE;
-secondButton.show();
+
   //call a function after x millisecods in order to change state from realtime to dashboard
   //setTimeout(startMission3,10000);
 }
+
+function showSecondButton(){
+  console.log('showSecondButton');
+  secondButton.show();
+}
+
 function startDesc1(){
 
   console.log('startDesc1');
