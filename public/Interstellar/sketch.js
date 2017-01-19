@@ -512,7 +512,7 @@ function startRealtime() {
   state = STATE_MISSION1;
 
   //call a function after x millisecods in order to change state from realtime to dashboard
-  setTimeout(startMission3, 180000);
+  setTimeout(startMission3, 180000/3);
   //setTimeout(startMission3,10000);
 
 }
@@ -537,7 +537,7 @@ function startMission3() {
   state = STATE_MISSION3;
 
   //call a function after x millisecods in order to change state from realtime to dashboard
-  setTimeout(startDashboard, 180000);
+  setTimeout(startDashboard, 180000/3);
 
 }
 /*
