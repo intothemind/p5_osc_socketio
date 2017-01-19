@@ -14,10 +14,10 @@ function drawDashboardVis() {
 	translate(100, 0);
 	//RECORD SECTION
 
-	fill('black');
-	textSize(H1);
+	//fill('black');
+	//textSize(H1);
 	textFont(myfont);
-	text('PRERACE', 0, 0);
+	//text('PRERACE', 0, 0);
 
 	textSize(H2)
 	fill(TEXTFILL);
@@ -56,7 +56,7 @@ function drawDashboardVis() {
 
 	fill('white');
 	textSize(30);
-	text(timeresult, 0, 625);	
+	text(timeresult, 227, 636.5);	
 
 
 	//race ranking
@@ -64,9 +64,9 @@ function drawDashboardVis() {
 	translate(512, 0);
 	//RECORD SECTION
 
-	fill('black');
+	/*fill('black');
 	textSize(H1);
-	text('RACE', 0, 0);
+	text('RACE', 0, 0);*/
 
 	textSize(H2)
 	fill(TEXTFILL);
@@ -105,7 +105,7 @@ function drawDashboardVis() {
 
 	fill('white');
 	textSize(30);
-	text('1:40', 0, 625);
+	text('01:40', 215, 636.5);
 
 	noLoop();
 

@@ -125,10 +125,10 @@ function setup() {
   createCanvas(1024, 768);
 
   //use this line to use dummy data (ideal for development)
- // muse = museData().dummyData();
+ muse = museData().dummyData();
 
   //use this line to make a real connection to muse
-  muse = museData().connection(getHost());
+  //muse = museData().connection(getHost());
 
   //only alpha_relative is looked at in this example
   muse.listenTo('/muse/elements/alpha_relative');
