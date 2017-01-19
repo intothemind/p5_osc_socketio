@@ -252,7 +252,7 @@ function startRealtime() {
   state = STATE_REALTIME;
 
   //call a function after x millisecods in order to change state from realtime to entspannung
-  setTimeout(startEntspannung, 150000);
+  setTimeout(startEntspannung, 180000/3);
 
 }
 
@@ -271,7 +271,7 @@ function startRealtime2() {
   state = STATE_REALTIME2;
 
   //call a function after x millisecods in order to change state from Realtime2 to Countdown2
-  setTimeout(startCountdown2, 210000);
+  setTimeout(startCountdown2, 180000/3);
 }
 
 
