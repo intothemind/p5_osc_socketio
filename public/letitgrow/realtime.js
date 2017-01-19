@@ -31,7 +31,7 @@ function drawRealtimeVis() {
     return;
   }
 
-  if (frameCount % 280 == 0) {
+  if (frameCount % 115 == 0) {
     alpha_values.push(alpha_relative.mean);
   }
 
