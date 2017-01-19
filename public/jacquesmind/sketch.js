@@ -221,7 +221,7 @@ function startRealtime() {
   // endButton anzeigen
   endButton.show();
   // Aufrufen der nachfolgenden Dashboard-Funktion nach einer bestimmten Zeit (3 Minuten)
-  setTimeout(startDashboard,180000);      // 3 Minuten
+  setTimeout(startDashboard,180000/3);      // 3 Minuten
   // Aktualisieren des Status
   state = state_realtime;
 }
