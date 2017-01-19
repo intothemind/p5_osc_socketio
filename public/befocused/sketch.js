@@ -153,7 +153,7 @@ function startRealtime(){
   state = STATE_REALTIME;
 
   //call a function after x millisecods in order to change state from realtime to dashboard
-  setTimeout(startDashboard,180000);
+  setTimeout(startDashboard,180000/3);
 
 }
 
