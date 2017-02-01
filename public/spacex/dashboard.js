@@ -1,6 +1,8 @@
 var overallScore = 0;
 
 var thetaRollingAvg = [];
+var alphaRollingAvg = [];
+var betaRollingAvg = [];
 
 var dPadding = 100;
 
@@ -13,13 +15,16 @@ function initDashboard(){
 	//maxThres = Number.MIN_VALUE;
 
 	thetaRollingAvg = rollingAvg(thetaValues,5);
-	console.log(thetaRollingAvg);
+	alphaRollingAvg = rollingAvg(alphaValues,5);
+	betaRollingAvg = rollingAvg(betaValues,5);
+	//console.log(thetaRollingAvg);
 }
 
 function drawDashboard(){
 
 	console.log('drawDashboard');
 	background('white');
+	
 
 	//score
 	push();
@@ -51,6 +56,22 @@ function drawDashboard(){
 	translate(dPadding,500);
 	push();
 	lineChart('Theta',thetaRollingAvg,400,40);
+	pop();
+	pop();
+
+
+	push();
+	translate(dPadding,600);
+	push();
+	lineChart('Alpha',alphaRollingAvg,400,40);
+	pop();
+	pop();
+
+
+		push();
+	translate(dPadding,700);
+	push();
+	lineChart('Beta',betaRollingAvg,400,40);
 	pop();
 	pop();
 

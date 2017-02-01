@@ -27,7 +27,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 3*60*1000;
+var duration = 0.3*60*1000;
 
 var padding = 50;
 
@@ -36,6 +36,8 @@ var threshold = 0;
 var maxThres = Number.MIN_VALUE;
 var altitude = 0;
 var thetaValues = [];
+var alphaValues = [];
+var betaValues = [];
 
 
 function initRocketView(){
@@ -82,7 +84,7 @@ background(255);
 
 	//var alphaMean = (alpha_relative.leftEar + alpha_relative.rightEar + alpha_relative.leftFront + alpha_relative.rightFront)/4;
 	//var betaMean = (beta_relative.leftEar + beta_relative.rightEar + beta_relative.leftFront + beta_relative.rightFront)/4;
-
+/*
 	if (frameCount > 1000) {
 		maxTheta = theta_relative.mean > maxTheta ? theta_relative.mean : maxTheta;
 		maxAlpha = alpha_relative.mean > maxAlpha ? alpha_relative.mean : maxAlpha;
@@ -101,11 +103,14 @@ background(255);
 	}
 	if(actualBetaBuffer.length > bufferLength){
 		actualBetaBuffer.shift();
-	}
+	}*/
 
 	//collect data every now and then
 	if(millis()-lastLap > lapDuration){
 		thetaValues.push(theta_relative.mean);
+		alphaValues.push(alpha_relative.mean);
+		betaValues.push(beta_relative.mean);
+
 		lastLap = millis();
 	}
 

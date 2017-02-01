@@ -126,7 +126,8 @@ function windowResized() {
 
 function alphaTheta(thetaMean, alphaMean, betaMean) {
 	//return alphaMean - betaMean;
-	return 1.1*thetaMean + 0.9*alphaMean  + Math.abs(thetaMean - alphaMean) - betaMean;
+
+	return thetaMean + alphaMean - betaMean;
 }
 
 function alphaBeta(alphaValue, betaValue) {
