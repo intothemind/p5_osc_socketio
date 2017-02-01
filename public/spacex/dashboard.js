@@ -28,7 +28,7 @@ function drawDashboard(){
 
 	//score
 	push();
-	translate(width/2,200);
+	translate(width/2,100);
 	textSize(48);
 	fill('black');
 	textAlign(RIGHT,TOP);
@@ -41,7 +41,7 @@ function drawDashboard(){
 
 	//altitude
 	push();
-	translate(dPadding,400);
+	translate(dPadding,200);
 	textAlign(LEFT,TOP);
 	textSize(32);
 	textStyle(BOLD);
@@ -53,7 +53,7 @@ function drawDashboard(){
 
 	//charts
 	push();
-	translate(dPadding,500);
+	translate(dPadding,300);
 	push();
 	lineChart('Theta',thetaRollingAvg,400,40);
 	pop();
@@ -61,7 +61,7 @@ function drawDashboard(){
 
 
 	push();
-	translate(dPadding,600);
+	translate(dPadding,400);
 	push();
 	lineChart('Alpha',alphaRollingAvg,400,40);
 	pop();
@@ -69,7 +69,7 @@ function drawDashboard(){
 
 
 		push();
-	translate(dPadding,700);
+	translate(dPadding,500);
 	push();
 	lineChart('Beta',betaRollingAvg,400,40);
 	pop();
