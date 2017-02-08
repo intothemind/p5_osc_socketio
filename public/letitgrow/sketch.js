@@ -129,10 +129,10 @@ function setup() {
   score_display = [score_display0, score_display1, score_display2, score_display3, score_display4, score_display5, score_display6, score_display7, score_display8, score_display9, score_display10, score_display11, score_display12, score_display13, score_display14, score_display15];
 
   //use this line to use dummy data (ideal for development)
-  muse = museData().dummyData();
+ // muse = museData().dummyData();
 
   //use this line to make a real connection to muse
-  // muse = museData().connection(getHost());
+   muse = museData().connection(getHost());
 
   //only alpha_relative is looked at in this example
   muse.listenTo('/muse/elements/alpha_relative');
