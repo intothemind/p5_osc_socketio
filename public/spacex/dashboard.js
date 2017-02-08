@@ -1,6 +1,8 @@
 var overallScore = 0;
 
 var thetaRollingAvg = [];
+var alphaRollingAvg = [];
+var betaRollingAvg = [];
 
 var dPadding = 100;
 
@@ -13,17 +15,20 @@ function initDashboard(){
 	//maxThres = Number.MIN_VALUE;
 
 	thetaRollingAvg = rollingAvg(thetaValues,5);
-	console.log(thetaRollingAvg);
+	alphaRollingAvg = rollingAvg(alphaValues,5);
+	betaRollingAvg = rollingAvg(betaValues,5);
+	//console.log(thetaRollingAvg);
 }
 
 function drawDashboard(){
 
 	console.log('drawDashboard');
 	background('white');
+	
 
 	//score
 	push();
-	translate(width/2,200);
+	translate(width/2,100);
 	textSize(48);
 	fill('black');
 	textAlign(RIGHT,TOP);
@@ -36,7 +41,7 @@ function drawDashboard(){
 
 	//altitude
 	push();
-	translate(dPadding,400);
+	translate(dPadding,200);
 	textAlign(LEFT,TOP);
 	textSize(32);
 	textStyle(BOLD);
@@ -48,9 +53,25 @@ function drawDashboard(){
 
 	//charts
 	push();
-	translate(dPadding,500);
+	translate(dPadding,300);
 	push();
 	lineChart('Theta',thetaRollingAvg,400,40);
+	pop();
+	pop();
+
+
+	push();
+	translate(dPadding,400);
+	push();
+	lineChart('Alpha',alphaRollingAvg,400,40);
+	pop();
+	pop();
+
+
+		push();
+	translate(dPadding,500);
+	push();
+	lineChart('Beta',betaRollingAvg,400,40);
 	pop();
 	pop();
 

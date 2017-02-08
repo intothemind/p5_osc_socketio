@@ -34,7 +34,7 @@ function drawCalibration() {
   translate(width / 2, height / 2 - 200);
   textAlign(CENTER, CENTER);
   textSize(18);
-  text('Wenn alle Punkte richtig Sitzen kann es los gehen!', 0, 0);
+  text('Wenn alle Punkte richtig sitzen kann es los gehen!', 0, 0);
   pop();
 
   //horseshoe img
