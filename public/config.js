@@ -1,14 +1,14 @@
 function getHost(){
 	var htw = false;
-	var screenpro = false;
-	var intothemind = true;
+	var screenpro = true;
+	var intothemind = false;
 
 	if(intothemind){
-		return '10.0.1.2:8080';
+		return '10.0.1.4:8080';
 	}
 	else if(screenpro){
 		//TODO put ip of screenpro network
-		return '127.0.0.1:8080';
+		return '192.168.60.102:8080';
 	}
 	else if(htw){
 		return '10.0.143.18:8080';
