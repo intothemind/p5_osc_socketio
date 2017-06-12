@@ -9,47 +9,15 @@ var dPadding = 100;
 
 
 function initDashboard(){
-	overallScore = floor(maxThres*altitude);
-	//altitude = 12345;
-	thetaRollingAvg = [0.5,0.7,0.3,0.8,0.1];
-	//maxThres = Number.MIN_VALUE;
-
 	thetaRollingAvg = rollingAvg(thetaValues,5);
 	alphaRollingAvg = rollingAvg(alphaValues,5);
 	betaRollingAvg = rollingAvg(betaValues,5);
-	//console.log(thetaRollingAvg);
 }
 
 function drawDashboard(){
 
 	console.log('drawDashboard');
 	background('white');
-	
-
-	//score
-	push();
-	translate(width/2,100);
-	textSize(48);
-	fill('black');
-	textAlign(RIGHT,TOP);
-	textStyle(BOLD);
-	text('Score',0,0);
-	textAlign(LEFT,TOP);
-	textStyle(NORMAL);
-	text(overallScore,30,0);
-	pop();
-
-	//altitude
-	push();
-	translate(dPadding,200);
-	textAlign(LEFT,TOP);
-	textSize(32);
-	textStyle(BOLD);
-	fill('black');
-	text('Altitude ',0,0);
-	textStyle(NORMAL);
-	text(altitude,150,0);
-	pop();
 
 	//charts
 	push();
