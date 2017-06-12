@@ -154,5 +154,4 @@ function mean(arr) {
 	});
 
 	return sum / arr.length;
-
 }
