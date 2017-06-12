@@ -1,6 +1,6 @@
 function getHost(){
 	var htw = false;
-	var screenpro = true;
+	var screenpro = false;
 	var intothemind = false;
 
 	if(intothemind){
