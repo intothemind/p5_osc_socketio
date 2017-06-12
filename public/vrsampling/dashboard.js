@@ -6,8 +6,6 @@ var betaRollingAvg = [];
 
 var dPadding = 100;
 
-
-
 function initDashboard(){
 	thetaRollingAvg = rollingAvg(thetaValues,5);
 	alphaRollingAvg = rollingAvg(alphaValues,5);
@@ -57,7 +55,7 @@ function lineChart(title,arr,w,h){
 	//title
 	push();
 	translate(0,h);
-	textStyle(BOLD);
+	//textStyle(BOLD);
 	textSize(24);
 	textAlign(LEFT,BASELINE);
 	fill('black');
@@ -102,16 +100,17 @@ function lineChart(title,arr,w,h){
 	ellipse(x,y,7,7);
 	pop();
 
-	//max value in the end
+	//avg value in the end
 	push();
 	translate(w+120,h);
 	
-	var percentMax = floor(maxVal*100);
+	var theavg = avg(arr);
+	var percentAvg = nf(theavg*100,null,2);
 	textSize(24);
 	fill('black');
 	noStroke();
 	textAlign(LEFT,BASELINE);
-	text(percentMax + ' %',0,0);
+	text(percentAvg + ' %',0,0);
 	pop();
 
 
@@ -132,4 +131,12 @@ function rollingAvg(arr,n){
 	}
 	return avgArr;
 
+}
+
+function avg(arr){
+	var sum = 0;
+	for(var i=0; i<arr.length; i++){
+		sum+=arr[i];
+	}
+	return sum/arr.length;
 }
