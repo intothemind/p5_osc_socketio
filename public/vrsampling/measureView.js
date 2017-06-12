@@ -2,7 +2,6 @@
 var startTime;
 var endTime;
 
-
 var lastLap;
 var lapDuration = 100; //millis
 
@@ -18,7 +17,6 @@ var altitude = 0;
 var thetaValues = [];
 var alphaValues = [];
 var betaValues = [];
-
 
 function initMeasureView() {
 
@@ -51,6 +49,44 @@ function drawMeasureView() {
 
 		lastLap = millis();
 	}
+
+	// rolling averages
+	var rollingSteps = 100;
+	var rollingAlpha = rollingAverage(alphaValues,rollingSteps);
+	var rollingBeta = rollingAverage(betaValues,rollingSteps);
+	var rollingTheta = rollingAverage(thetaValues,rollingSteps);
+
+	var rollingData = {
+		{
+			label: 'Theta',
+			value: rollingTheta,
+			color: 'orange'
+		},{
+			label: 'Alpha',
+			value: rollingAlpha,
+			color: 'red'
+		},{
+			label: 'Beta',
+			value: rollingBeta,
+			color: 'green'
+		}
+	}
+
+	push();
+	translate(padding,500);
+	var gap = 10;
+	var rectWidth = 50;
+	var chartHeight = 100;
+	for(var i=0; i<rollingData.length; i++){
+		var data = rollingData[i];
+		var x = i*(rectWidth+gap);
+		var h = map(data.value,0,1,0,chartHeight);
+		var y = chartHeight-h;
+		fill(data.color);
+		rect(x,y,rectWidth,h);
+	}
+	
+	pop();
 
 	//headband status
 	var badValue = 3;
@@ -121,6 +157,16 @@ function drawDebugInfo() {
 	fill('grey');
 	text(nf(mean(actualBetaBuffer) * 100, null, 0) + ' %', 150, height - 20);
 
+}
+
+function rollingAverage(arr,steps){
+	var sum = 0;
+	var n = arr.length <= steps ? arr.length : steps;
+	for(var i=0; i<n; i++){
+		sum+=arr[i];
+	}
+	var avg = sum/n;
+	return avg;
 }
 
 function formatTime(millis) {
