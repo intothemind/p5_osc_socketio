@@ -6,7 +6,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 0.25 * 60 * 1000;
+var duration = 0.1 * 60 * 1000;
 
 var padding = 50;
 
@@ -75,17 +75,17 @@ function drawMeasureView() {
 	push();
 	//translate(padding,400);
 	translate(width/2,height/2);
-	var gap = 10;
-	var rectWidth = 50;
-	var chartHeight = 200;
+	var gap = 20;
+	var rectWidth = 70;
+	var chartHeight = 300;
 	var chartWidth = rollingData.length*(rectWidth+gap);
 	translate(-chartWidth/2,-chartHeight/2);
-
+/*
 	noFill();
 	stroke(0);
-	rect(0,0,chartWidth,chartHeight);
+	rect(0,0,chartWidth,chartHeight);*/
 
-	var maxVal = 0.6;
+	var maxVal = 0.5;
 	//bars
 	for(var i=0; i<rollingData.length; i++){
 		var data = rollingData[i];
@@ -135,9 +135,27 @@ function drawMeasureView() {
 	drawHorseShoeStatus([leftEar, leftFront, rightFront, rightEar]);
 	pop();
 
+
+
+	//elapsed time
+	var elapsed = millis()-startTime;
+	if(elapsed>duration){
+		//time is up
+		setState(STATE_DASHBOARD);
+	}
+
+	push();
+	var elapsedNice = formatTime(elapsed);
+	textAlign(LEFT,TOP);
+	text(elapsedNice,padding,50);
+	pop();
+
+
+
+
 }
 
-function cleanupRocketView() {
+function cleanupMeasureView() {
 
 }
 
