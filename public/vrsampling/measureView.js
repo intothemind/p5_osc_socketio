@@ -6,7 +6,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 0.1 * 60 * 1000;
+var duration = 1 * 60 * 1000;
 
 var padding = 50;
 
@@ -43,6 +43,7 @@ function drawMeasureView() {
 
 	//collect data every now and then
 	if (millis() - lastLap > lapDuration) {
+		console.log('lap');
 		thetaValues.push(theta_relative.mean);
 		alphaValues.push(alpha_relative.mean);
 		betaValues.push(beta_relative.mean);
@@ -215,7 +216,7 @@ function drawDebugInfo() {
 function rollingAverage(arr,steps){
 	var sum = 0;
 	var n = arr.length <= steps ? arr.length : steps;
-	for(var i=0; i<n; i++){
+	for(var i=arr.length-1; i>=arr.length-n; i--){
 		sum+=arr[i];
 	}
 	var avg = sum/n;
