@@ -10,7 +10,7 @@ var done = false;
 
 //states
 var STATE_CALIBRATION = 0;
-var STATE_MEASURING = 1;
+var STATE_MEASUREVIEW = 1;
 var STATE_DASHBOARD = 2;
 var state = STATE_CALIBRATION;
 

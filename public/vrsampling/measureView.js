@@ -6,7 +6,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 3 * 60 * 1000;
+var duration = 0.25 * 60 * 1000;
 
 var padding = 50;
 
@@ -56,7 +56,7 @@ function drawMeasureView() {
 	var rollingBeta = rollingAverage(betaValues,rollingSteps);
 	var rollingTheta = rollingAverage(thetaValues,rollingSteps);
 
-	var rollingData = {
+	var rollingData = [
 		{
 			label: 'Theta',
 			value: rollingTheta,
@@ -70,7 +70,7 @@ function drawMeasureView() {
 			value: rollingBeta,
 			color: 'green'
 		}
-	}
+	];
 
 	push();
 	translate(padding,500);

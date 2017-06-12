@@ -12,7 +12,7 @@ function initCalibrationView() {
 		goButton = createButton('Go!');
 	}
 	goButton.position(width / 2 - 50, height / 2 + 240);
-	goButton.mousePressed(loadRocketView);
+	goButton.mousePressed(loadMeasureView);
 	goButton.size(100, 30);
 	goButton.hide();
 }
@@ -125,6 +125,6 @@ function getImage(id, val) {
 	return calImg[id][valIndex];
 }
 
-function loadRocketView() {
-	setState(STATE_ROCKETVIEW);
+function loadMeasureView() {
+	setState(STATE_MEASUREVIEW);
 }
