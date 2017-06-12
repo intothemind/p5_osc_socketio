@@ -60,30 +60,65 @@ function drawMeasureView() {
 		{
 			label: 'Theta',
 			value: rollingTheta,
-			color: 'orange'
+			color: '#DB0048'
 		},{
 			label: 'Alpha',
 			value: rollingAlpha,
-			color: 'red'
+			color: '#00709E'
 		},{
 			label: 'Beta',
 			value: rollingBeta,
-			color: 'green'
+			color: '#D0DB95'
 		}
 	];
 
 	push();
-	translate(padding,500);
+	//translate(padding,400);
+	translate(width/2,height/2);
 	var gap = 10;
 	var rectWidth = 50;
-	var chartHeight = 100;
+	var chartHeight = 200;
+	var chartWidth = rollingData.length*(rectWidth+gap);
+	translate(-chartWidth/2,-chartHeight/2);
+
+	noFill();
+	stroke(0);
+	rect(0,0,chartWidth,chartHeight);
+
+	var maxVal = 0.6;
+	//bars
 	for(var i=0; i<rollingData.length; i++){
 		var data = rollingData[i];
 		var x = i*(rectWidth+gap);
-		var h = map(data.value,0,1,0,chartHeight);
+		var h = map(data.value,0,maxVal,0,chartHeight);
 		var y = chartHeight-h;
 		fill(data.color);
+		noStroke();
 		rect(x,y,rectWidth,h);
+	}
+
+	//labels
+	for(var i=0; i<rollingData.length; i++){
+		var data = rollingData[i];
+		var x = i*(rectWidth+gap);
+		var h = map(data.value,0,maxVal,0,chartHeight);
+		var y = chartHeight-h;
+		fill('black');
+		noStroke();
+		text(data.label,x,chartHeight+10);
+	}
+
+	//numbers
+	for(var i=0; i<rollingData.length; i++){
+		var data = rollingData[i];
+		var x = i*(rectWidth+gap);
+		var h = map(data.value,0,maxVal,0,chartHeight);
+		var y = chartHeight-h;
+		fill('black');
+		noStroke();
+		var percValue = data.value*100;
+		var percValueF = nf(percValue,null,2) + ' %'; 
+		text(percValueF,x,y-2);
 	}
 	
 	pop();
@@ -96,7 +131,7 @@ function drawMeasureView() {
 	var rightFront = horse.rightFront || badValue;
 
 	push();
-	translate(padding, height - 50);
+	translate(padding+10, height - 50);
 	drawHorseShoeStatus([leftEar, leftFront, rightFront, rightEar]);
 	pop();
 
