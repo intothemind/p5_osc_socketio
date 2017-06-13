@@ -23,5 +23,5 @@ function getColor(theKey){
 		//console.log('in the gamma ' + theKey);
 		return colorScheme[4];
 	}
-	else return 'red';
+	else return 'black';
 }

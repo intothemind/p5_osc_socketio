@@ -20,6 +20,8 @@ var betaValues = [];
 var deltaValues = [];
 var gammaValues = [];
 
+var fitness = 0;
+
 function initMeasureView() {
 
 	startTime = millis();
@@ -65,6 +67,8 @@ function drawMeasureView() {
 	var rollingGamma = rollingAverage(gammaValues, rollingSteps);
 	var rollingDelta = rollingAverage(deltaValues, rollingSteps);
 
+	fitness = calcFitness(rollingDelta,rollingTheta,rollingAlpha,rollingBeta,rollingGamma);
+
 	var rollingData = [{
 		label: 'Delta',
 		value: rollingDelta
@@ -80,6 +84,9 @@ function drawMeasureView() {
 	}, {
 		label: 'Gamma',
 		value: rollingGamma
+	},{
+		label: 'Fitness',
+		value: fitness
 	}];
 
 	push();
@@ -239,4 +246,8 @@ function formatTime(millis) {
 	var mins = floor(totalsecs / 60);
 	var secs = totalsecs - mins * 60;
 	return nf(mins, 2, null) + ':' + nf(secs, 2, 0);
+}
+
+function calcFitness(delta,theta,alpha,beta,gamma){
+	return 0.5*alpha + 0.5*beta - 0.2*theta;
 }
