@@ -67,24 +67,19 @@ function drawMeasureView() {
 
 	var rollingData = [{
 		label: 'Delta',
-		value: rollingDelta,
-		color: '#DB0048'
+		value: rollingDelta
 	}, {
 		label: 'Theta',
-		value: rollingTheta,
-		color: '#DB0048'
+		value: rollingTheta
 	}, {
 		label: 'Alpha',
-		value: rollingAlpha,
-		color: '#00709E'
+		value: rollingAlpha
 	}, {
 		label: 'Beta',
-		value: rollingBeta,
-		color: '#D0DB95'
+		value: rollingBeta
 	}, {
 		label: 'Gamma',
-		value: rollingGamma,
-		color: '#D0DB95'
+		value: rollingGamma
 	}];
 
 	push();
@@ -107,7 +102,10 @@ function drawMeasureView() {
 		var x = i * (rectWidth + gap);
 		var h = map(data.value, 0, maxVal, 0, chartHeight);
 		var y = chartHeight - h;
-		fill(data.color);
+		var c = getColor(data.label);
+
+		console.log('color: ' + data.label + ' - ' + c);
+		fill(c);
 		noStroke();
 		rect(x, y, rectWidth, h);
 	}
