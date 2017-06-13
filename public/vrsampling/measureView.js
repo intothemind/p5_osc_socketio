@@ -6,7 +6,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 1 * 60 * 1000;
+var duration = 0.1 * 60 * 1000;
 
 var padding = 50;
 
@@ -17,6 +17,8 @@ var altitude = 0;
 var thetaValues = [];
 var alphaValues = [];
 var betaValues = [];
+var deltaValues = [];
+var gammaValues = [];
 
 function initMeasureView() {
 
@@ -40,6 +42,8 @@ function drawMeasureView() {
 	var theta_relative = muse.get('/muse/elements/theta_relative');
 	var alpha_relative = muse.get('/muse/elements/alpha_relative');
 	var beta_relative = muse.get('/muse/elements/beta_relative');
+	var gamma_relative = muse.get('/muse/elements/gamma_relative');
+	var delta_relative = muse.get('/muse/elements/delta_relative');
 
 	//collect data every now and then
 	if (millis() - lastLap > lapDuration) {
@@ -47,6 +51,8 @@ function drawMeasureView() {
 		thetaValues.push(theta_relative.mean);
 		alphaValues.push(alpha_relative.mean);
 		betaValues.push(beta_relative.mean);
+		deltaValues.push(delta_relative.mean);
+		gammaValues.push(gamma_relative.mean);
 
 		lastLap = millis();
 	}
@@ -56,8 +62,15 @@ function drawMeasureView() {
 	var rollingAlpha = rollingAverage(alphaValues,rollingSteps);
 	var rollingBeta = rollingAverage(betaValues,rollingSteps);
 	var rollingTheta = rollingAverage(thetaValues,rollingSteps);
+	var rollingGamma = rollingAverage(gammaValues,rollingSteps);
+var rollingDelta = rollingAverage(deltaValues,rollingSteps);
 
 	var rollingData = [
+	{
+			label: 'Delta',
+			value: rollingDelta,
+			color: '#DB0048'
+		},
 		{
 			label: 'Theta',
 			value: rollingTheta,
@@ -69,6 +82,11 @@ function drawMeasureView() {
 		},{
 			label: 'Beta',
 			value: rollingBeta,
+			color: '#D0DB95'
+		}
+		,{
+			label: 'Gamma',
+			value: rollingGamma,
 			color: '#D0DB95'
 		}
 	];
