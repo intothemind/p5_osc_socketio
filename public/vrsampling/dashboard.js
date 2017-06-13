@@ -23,9 +23,17 @@ function drawDashboard(){
 
 	//charts
 	push();
+	translate(dPadding,100);
+	push();
+	lineChart('Delta',deltaRollingAvg,400,40,getColor('Delta'));
+	pop();
+	pop();
+
+
+	push();
 	translate(dPadding,200);
 	push();
-	lineChart('Delta',deltaRollingAvg,400,40,'#DB0048');
+	lineChart('Theta',thetaRollingAvg,400,40,getColor('Theta'));
 	pop();
 	pop();
 
@@ -33,30 +41,22 @@ function drawDashboard(){
 	push();
 	translate(dPadding,300);
 	push();
-	lineChart('Theta',thetaRollingAvg,400,40,'#DB0048');
-	pop();
-	pop();
-
-
-	push();
-	translate(dPadding,400);
-	push();
-	lineChart('Alpha',alphaRollingAvg,400,40,'#00709E');
+	lineChart('Alpha',alphaRollingAvg,400,40,getColor('Alpha'));
 	pop();
 	pop();
 
 
 		push();
-	translate(dPadding,500);
+	translate(dPadding,400);
 	push();
-	lineChart('Beta',betaRollingAvg,400,40,'#D0DB95');
+	lineChart('Beta',betaRollingAvg,400,40,getColor('Beta'));
 	pop();
 	pop();
 
 			push();
-	translate(dPadding,600);
+	translate(dPadding,500);
 	push();
-	lineChart('Gamma',gammaRollingAvg,400,40,'#D0DB95');
+	lineChart('Gamma',gammaRollingAvg,400,40,getColor('Gamma'));
 	pop();
 	pop();
 
