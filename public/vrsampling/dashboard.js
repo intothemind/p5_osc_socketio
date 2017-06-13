@@ -21,7 +21,7 @@ function drawDashboard(){
 	push();
 	translate(dPadding,300);
 	push();
-	lineChart('Theta',thetaRollingAvg,400,40);
+	lineChart('Theta',thetaRollingAvg,400,40,'#DB0048');
 	pop();
 	pop();
 
@@ -29,7 +29,7 @@ function drawDashboard(){
 	push();
 	translate(dPadding,400);
 	push();
-	lineChart('Alpha',alphaRollingAvg,400,40);
+	lineChart('Alpha',alphaRollingAvg,400,40,'#00709E');
 	pop();
 	pop();
 
@@ -37,7 +37,7 @@ function drawDashboard(){
 		push();
 	translate(dPadding,500);
 	push();
-	lineChart('Beta',betaRollingAvg,400,40);
+	lineChart('Beta',betaRollingAvg,400,40,'#D0DB95');
 	pop();
 	pop();
 
@@ -48,7 +48,7 @@ function cleanupDashboard(){
 	
 }
 
-function lineChart(title,arr,w,h){
+function lineChart(title,arr,w,h,col){
 
 	var maxY = 0.6;
 
@@ -70,8 +70,8 @@ function lineChart(title,arr,w,h){
 	fill('white');
 	//rect(0,0,w,h);
 	noFill();
-	stroke('red');
-	fill('red');
+	stroke(col);
+	fill(col);
 	beginShape();
 	vertex(0,h);
 	for(var i=0; i<arr.length; i++){
