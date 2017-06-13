@@ -3,6 +3,8 @@ var overallScore = 0;
 var thetaRollingAvg = [];
 var alphaRollingAvg = [];
 var betaRollingAvg = [];
+var gammaRollingAvg = [];
+var deltaRollingAvg = [];
 
 var dPadding = 100;
 
@@ -10,6 +12,8 @@ function initDashboard(){
 	thetaRollingAvg = rollingAvg(thetaValues,5);
 	alphaRollingAvg = rollingAvg(alphaValues,5);
 	betaRollingAvg = rollingAvg(betaValues,5);
+	deltaRollingAvg = rollingAvg(deltaValues,5);
+	gammaRollingAvg = rollingAvg(gammaValues,5);
 }
 
 function drawDashboard(){
@@ -18,6 +22,14 @@ function drawDashboard(){
 	background('white');
 
 	//charts
+	push();
+	translate(dPadding,200);
+	push();
+	lineChart('Delta',deltaRollingAvg,400,40,'#DB0048');
+	pop();
+	pop();
+
+
 	push();
 	translate(dPadding,300);
 	push();
@@ -40,6 +52,14 @@ function drawDashboard(){
 	lineChart('Beta',betaRollingAvg,400,40,'#D0DB95');
 	pop();
 	pop();
+
+			push();
+	translate(dPadding,600);
+	push();
+	lineChart('Gamma',gammaRollingAvg,400,40,'#D0DB95');
+	pop();
+	pop();
+
 
 	noLoop();
 }
