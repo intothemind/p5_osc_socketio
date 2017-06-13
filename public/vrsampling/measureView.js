@@ -59,87 +59,83 @@ function drawMeasureView() {
 
 	// rolling averages
 	var rollingSteps = 100;
-	var rollingAlpha = rollingAverage(alphaValues,rollingSteps);
-	var rollingBeta = rollingAverage(betaValues,rollingSteps);
-	var rollingTheta = rollingAverage(thetaValues,rollingSteps);
-	var rollingGamma = rollingAverage(gammaValues,rollingSteps);
-var rollingDelta = rollingAverage(deltaValues,rollingSteps);
+	var rollingAlpha = rollingAverage(alphaValues, rollingSteps);
+	var rollingBeta = rollingAverage(betaValues, rollingSteps);
+	var rollingTheta = rollingAverage(thetaValues, rollingSteps);
+	var rollingGamma = rollingAverage(gammaValues, rollingSteps);
+	var rollingDelta = rollingAverage(deltaValues, rollingSteps);
 
-	var rollingData = [
-	{
-			label: 'Delta',
-			value: rollingDelta,
-			color: '#DB0048'
-		},
-		{
-			label: 'Theta',
-			value: rollingTheta,
-			color: '#DB0048'
-		},{
-			label: 'Alpha',
-			value: rollingAlpha,
-			color: '#00709E'
-		},{
-			label: 'Beta',
-			value: rollingBeta,
-			color: '#D0DB95'
-		}
-		,{
-			label: 'Gamma',
-			value: rollingGamma,
-			color: '#D0DB95'
-		}
-	];
+	var rollingData = [{
+		label: 'Delta',
+		value: rollingDelta,
+		color: '#DB0048'
+	}, {
+		label: 'Theta',
+		value: rollingTheta,
+		color: '#DB0048'
+	}, {
+		label: 'Alpha',
+		value: rollingAlpha,
+		color: '#00709E'
+	}, {
+		label: 'Beta',
+		value: rollingBeta,
+		color: '#D0DB95'
+	}, {
+		label: 'Gamma',
+		value: rollingGamma,
+		color: '#D0DB95'
+	}];
 
 	push();
 	//translate(padding,400);
-	translate(width/2,height/2);
+	translate(width / 2, height / 2);
 	var gap = 20;
 	var rectWidth = 70;
 	var chartHeight = 300;
-	var chartWidth = rollingData.length*(rectWidth+gap);
-	translate(-chartWidth/2,-chartHeight/2);
-/*
-	noFill();
-	stroke(0);
-	rect(0,0,chartWidth,chartHeight);*/
+	var chartWidth = rollingData.length * (rectWidth + gap);
+	translate(-chartWidth / 2, -chartHeight / 2);
+	/*
+		noFill();
+		stroke(0);
+		rect(0,0,chartWidth,chartHeight);*/
 
 	var maxVal = 0.5;
 	//bars
-	for(var i=0; i<rollingData.length; i++){
+	for (var i = 0; i < rollingData.length; i++) {
 		var data = rollingData[i];
-		var x = i*(rectWidth+gap);
-		var h = map(data.value,0,maxVal,0,chartHeight);
-		var y = chartHeight-h;
+		var x = i * (rectWidth + gap);
+		var h = map(data.value, 0, maxVal, 0, chartHeight);
+		var y = chartHeight - h;
 		fill(data.color);
 		noStroke();
-		rect(x,y,rectWidth,h);
+		rect(x, y, rectWidth, h);
 	}
 
 	//labels
-	for(var i=0; i<rollingData.length; i++){
+	for (var i = 0; i < rollingData.length; i++) {
 		var data = rollingData[i];
-		var x = i*(rectWidth+gap);
-		var h = map(data.value,0,maxVal,0,chartHeight);
-		var y = chartHeight-h;
+		var x = i * (rectWidth + gap);
+		var h = map(data.value, 0, maxVal, 0, chartHeight);
+		var y = chartHeight - h;
 		fill('black');
 		noStroke();
-		text(data.label,x,chartHeight+10);
+		text(data.label, x, chartHeight + 10);
 	}
 
 	//numbers
-	for(var i=0; i<rollingData.length; i++){
+	for (var i = 0; i < rollingData.length; i++) {
 		var data = rollingData[i];
-		var x = i*(rectWidth+gap);
-		var h = map(data.value,0,maxVal,0,chartHeight);
-		var y = chartHeight-h;
+		var x = i * (rectWidth + gap);
+		var h = map(data.value, 0, maxVal, 0, chartHeight);
+		var y = chartHeight - h;
 		fill('black');
 		noStroke();
-		var percValue = data.value*100;
-		var percValueF = nf(percValue,null,2) + ' %'; 
-		text(percValueF,x,y-2);
+		var percValue = data.value * 100;
+		var percValueF = nf(percValue, null, 2) + ' %';
+		text(percValueF, x, y - 2);
 	}
-	
+
 	pop();
 
 	//headband status
@@ -150,25 +146,24 @@ var rollingDelta = rollingAverage(deltaValues,rollingSteps);
 	var rightFront = horse.rightFront || badValue;
 
 	push();
-	translate(padding+10, height - 50);
+	translate(padding + 10, height - 50);
 	drawHorseShoeStatus([leftEar, leftFront, rightFront, rightEar]);
 	pop();
 
 
 
 	//elapsed time
-	var elapsed = millis()-startTime;
-	if(elapsed>duration){
+	var elapsed = millis() - startTime;
+	if (elapsed > duration) {
 		//time is up
 		setState(STATE_DASHBOARD);
 	}
 
 	push();
 	var elapsedNice = formatTime(elapsed);
-	textAlign(LEFT,TOP);
-	text(elapsedNice,padding,50);
+	textAlign(LEFT, TOP);
+	text(elapsedNice, padding, 50);
 	pop();
-
 
 
 
@@ -231,13 +226,13 @@ function drawDebugInfo() {
 
 }
 
-function rollingAverage(arr,steps){
+function rollingAverage(arr, steps) {
 	var sum = 0;
 	var n = arr.length <= steps ? arr.length : steps;
-	for(var i=arr.length-1; i>=arr.length-n; i--){
-		sum+=arr[i];
+	for (var i = arr.length - 1; i >= arr.length - n; i--) {
+		sum += arr[i];
 	}
-	var avg = sum/n;
+	var avg = sum / n;
 	return avg;
 }
 
