@@ -1,7 +1,7 @@
 var muse;
 
 //initialize museData
-var dummy = false;
+var dummy = true;
 
 var done = false;
 
@@ -76,6 +76,8 @@ function setup() {
 	muse.listenTo('/muse/elements/alpha_relative');
 	muse.listenTo('/muse/elements/beta_relative');
 	muse.listenTo('/muse/elements/theta_relative');
+	muse.listenTo('/muse/elements/gamma_relative');
+	muse.listenTo('/muse/elements/delta_relative');
 	muse.listenTo('/muse/elements/horseshoe');
 	muse.listenTo('/muse/elements/touching_forehead');
 
