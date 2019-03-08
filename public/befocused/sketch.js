@@ -73,10 +73,10 @@ function setup() {
   
   pg = createGraphics(Herz.width, Herz.height);
   //use this line to use dummy data (ideal for development)
- // muse = museData().dummyData();
+  muse = museData().dummyData();
 
   //use this line to make a real connection to muse
-  muse = museData().connection(getHost()); //127.0.0.1:8081 = Localhost ansonsten IP von Mac angeben http://10.0.1.2:8081
+  //muse = museData().connection(getHost()); //127.0.0.1:8081 = Localhost ansonsten IP von Mac angeben http://10.0.1.2:8081
 
   //only alpha_relative is looked at in this example
   //muse.listenTo('/muse/elements/alpha_relative');

@@ -27,17 +27,17 @@ function drawDashboard(){
 	
 
 	//score
-	push();
-	translate(width/2,100);
-	textSize(48);
-	fill('black');
-	textAlign(RIGHT,TOP);
-	textStyle(BOLD);
-	text('Score',0,0);
-	textAlign(LEFT,TOP);
-	textStyle(NORMAL);
-	text(overallScore,30,0);
-	pop();
+	// push();
+	// translate(width/2,100);
+	// textSize(48);
+	// fill('black');
+	// textAlign(RIGHT,TOP);
+	// textStyle(BOLD);
+	// text('Score',0,0);
+	// textAlign(LEFT,TOP);
+	// textStyle(NORMAL);
+	// text(overallScore,30,0);
+	// pop();
 
 	//altitude
 	push();

@@ -106,7 +106,7 @@ function setup() {
 
 
 function draw() {
-console.log('hi');
+//console.log('hi');
 	switch(state){
 		case STATE_CALIBRATION: drawCalibrationView(); break;
 		case STATE_ROCKETVIEW: drawRocketView(); break;

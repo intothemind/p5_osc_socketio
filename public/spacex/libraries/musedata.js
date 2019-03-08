@@ -64,6 +64,8 @@ function museConnector(_url) {
     console.log('socket', socket);
     // ws.onmessage = this.onMsg;
     socket.on('muse', this.onMsg);
+    console.log('socket: ');
+    console.log(socket);
 
     return my;
   }
@@ -103,14 +105,17 @@ function museConnector(_url) {
       return +d;
     });
 
-
+//console.log(msg);
 
     var id = msg[0];
-    //  console.log('id',id);
+     // console.log('id',id);
     var cback = callbacks[id];
+   
 
     if (cback) {
+      
       var jsonobj = cback(msg);
+     // console.log('jsonobj',jsonobj);
       dataContainer[jsonobj.id] = jsonobj;
     }
 
