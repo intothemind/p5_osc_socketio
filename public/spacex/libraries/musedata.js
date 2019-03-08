@@ -94,7 +94,7 @@ function museConnector(_url) {
   }
 
   my.onMsg = function(obj) {
-    //console.log('museConnector.onMsg: ',obj);
+   // console.log('museConnector.onMsg: ',obj);
     //var msg = obj.split(',');
 
     //convert numbers to numbers
@@ -105,7 +105,7 @@ function museConnector(_url) {
       return +d;
     });
 
-//console.log(msg);
+  //  console.log(msg);
 
     var id = msg[0];
      // console.log('id',id);
