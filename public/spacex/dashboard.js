@@ -11,7 +11,7 @@ var dPadding = 100;
 function initDashboard(){
 	overallScore = floor(maxThres*altitude);
 	//altitude = 12345;
-	thetaRollingAvg = [0.5,0.7,0.3,0.8,0.1];
+	//thetaRollingAvg = [0.5,0.7,0.3,0.8,0.1];
 	//maxThres = Number.MIN_VALUE;
 
 	thetaRollingAvg = rollingAvg(thetaValues,5);
@@ -144,6 +144,19 @@ function lineChart(title,arr,w,h){
 	noStroke();
 	textAlign(LEFT,BASELINE);
 	text(percentMax + ' %',0,0);
+	pop();
+
+
+	
+	push();
+	translate(w+200,h);
+	var theMean = _.mean(arr);
+	var percentMean = floor(100*theMean);
+	textSize(24);
+	fill('black');
+	noStroke();
+	textAlign(LEFT,BASELINE);
+	text(percentMean + ' %',0,0);
 	pop();
 
 

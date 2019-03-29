@@ -27,7 +27,7 @@ var lastLap;
 var lapDuration = 100; //millis
 
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 1*60*1000;
+var duration = 12*60*1000;
 
 var padding = 50;
 
@@ -115,7 +115,7 @@ background(255);
 	}
 
 
-	var score = alphaTheta(theta_relative.mean, alpha_relative.mean, beta_relative.mean); //beta(alphaMean,betaMean);//alphaBeta(alphaMean,betaMean);
+	var score = alphaThetaBeta(theta_relative.mean, alpha_relative.mean, beta_relative.mean); //beta(alphaMean,betaMean);//alphaBeta(alphaMean,betaMean);
 	 threshold = thresh.threshold(score);
 
 	maxThres = max(maxThres,threshold);

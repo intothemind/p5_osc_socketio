@@ -123,6 +123,11 @@ function windowResized() {
 	console.log('width', width, 'height', height);
 }
 
+function alphaThetaBeta(thetaMean, alphaMean, betaMean){
+	//return 2*alphaMean - thetaMean - betaMean;
+	return alphaMean -  thetaMean;
+}
+
 
 function alphaTheta(thetaMean, alphaMean, betaMean) {
 	//return alphaMean - betaMean;
