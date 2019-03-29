@@ -26,8 +26,9 @@ var endTime;
 var lastLap;
 var lapDuration = 100; //millis
 
+var minutes = 12;
 //how long does the neurofeedback go. (in milliseconds) 
-var duration = 12*60*1000;
+var duration = minutes*60*1000;
 
 var padding = 50;
 

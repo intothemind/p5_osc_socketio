@@ -14,9 +14,10 @@ function initDashboard(){
 	//thetaRollingAvg = [0.5,0.7,0.3,0.8,0.1];
 	//maxThres = Number.MIN_VALUE;
 
-	thetaRollingAvg = rollingAvg(thetaValues,5);
-	alphaRollingAvg = rollingAvg(alphaValues,5);
-	betaRollingAvg = rollingAvg(betaValues,5);
+	var rollFactor = 100;
+	thetaRollingAvg = rollingAvg(thetaValues,rollFactor);
+	alphaRollingAvg = rollingAvg(alphaValues,rollFactor);
+	betaRollingAvg = rollingAvg(betaValues,rollFactor);
 	//console.log(thetaRollingAvg);
 }
 
