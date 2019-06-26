@@ -157,7 +157,7 @@ function lineChart(title,arr,w,h){
 	fill('black');
 	noStroke();
 	textAlign(LEFT,BASELINE);
-	text(percentMean + ' %',0,0);
+	text("mean: " + percentMean + ' %',0,0);
 	pop();
 
 

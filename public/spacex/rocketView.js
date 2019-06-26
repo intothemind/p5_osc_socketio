@@ -116,7 +116,7 @@ background(255);
 	}
 
 
-	var score = alphaThetaBeta(theta_relative.mean, alpha_relative.mean, beta_relative.mean); //beta(alphaMean,betaMean);//alphaBeta(alphaMean,betaMean);
+	var score = pureAlpha(theta_relative.mean, alpha_relative.mean, beta_relative.mean); //beta(alphaMean,betaMean);//alphaBeta(alphaMean,betaMean);
 	 threshold = thresh.threshold(score);
 
 	maxThres = max(maxThres,threshold);

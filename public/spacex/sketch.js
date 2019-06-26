@@ -128,10 +128,13 @@ function alphaThetaBeta(thetaMean, alphaMean, betaMean){
 	return alphaMean -  0.5*thetaMean;
 }
 
+function pureAlpha(alphaMean){
+	return alphaMean;
+}
+
 
 function alphaTheta(thetaMean, alphaMean, betaMean) {
 	//return alphaMean - betaMean;
-
 	return thetaMean + alphaMean - betaMean;
 }
 
